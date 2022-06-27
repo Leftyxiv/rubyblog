@@ -12,6 +12,7 @@
     <tr>
       <td><%= article.title %></td>
       <td><%= article.description %></td>
+      <td><%= link_to "Delete", article_path(article), data: { "turbo-method": :delete, "turbo-confirm": "are you sure?" } %> </td>
     </tr>
   <% end %>
   </tbody>
