@@ -1,0 +1,25 @@
+
+<% if @user.errors.any? %>
+
+  <h2>Errors</h2>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with(model: @user, data: { turbo: false }, local:true)  do |f| %>
+  <%= f.label :username %>
+  <br>
+  <%= text_field :user, :username %>
+  <br>
+    <%= f.label :email %>
+    <br>
+  <%= email_field :user, :email %>
+  <br>
+      <%= f.label :password %>
+    <br>
+  <%= password_field :user, :password %>
+  <br>
+  <%= submit_tag "Submit" %>
+<% end %>
