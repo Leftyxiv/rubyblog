@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def home
-    render html: "Hello, world!"
+    render 'pages/home'
   end
 end
