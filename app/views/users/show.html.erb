@@ -1,0 +1,8 @@
+<%= @user.username %>'s profile
+
+<%= gravatar_for @user %>
+
+Articles
+<% @user.articles.each do |article| %>
+  <%= link_to article.title, article_path(article) %>
+<% end %>
