@@ -18,4 +18,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def is_admin?
+    if !current_user.admin?
+      flash[:danger] = "You must be an admin to perform this action"
+      redirect_to root_path
+    end
+  end
 end
