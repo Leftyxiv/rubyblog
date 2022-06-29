@@ -4,7 +4,8 @@
 
 <%= link_to "Edit", edit_user_path(@user) %>
 Articles
+<%= will_paginate @articles.users %>
 <% @user.articles.each do |article| %>
   <%= link_to article.title, article_path(article) %>
 <% end %>
-
+<%= will_paginate @articles.users %>

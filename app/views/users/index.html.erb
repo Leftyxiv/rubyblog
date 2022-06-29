@@ -1,6 +1,7 @@
 Users
-
+<%= will_paginate @users %>
 <% @users.each do |user| %>
   <%= link_to user.username, user_path(user) %>
   <%= link_to gravatar_for(user, size: 150), user %>
 <% end %>
+<%= will_paginate @users %>
