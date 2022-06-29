@@ -2,7 +2,9 @@
 
 <%= gravatar_for @user %>
 
+<%= link_to "Edit", edit_user_path(@user) %>
 Articles
 <% @user.articles.each do |article| %>
   <%= link_to article.title, article_path(article) %>
 <% end %>
+
