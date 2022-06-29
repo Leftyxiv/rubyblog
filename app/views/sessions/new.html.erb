@@ -3,11 +3,11 @@
 <%= form_with(scope: :session, url: login_path, local: true )  do |f| %>
     <%= f.label :email %>
     <br>
-  <%= email_field :user, :email %>
+  <%= f.email_field :email %>
   <br>
       <%= f.label :password %>
     <br>
-  <%= password_field :user, :password %>
+  <%= f.password_field :password %>
   <br>
   <%= submit_tag "Submit" %>
 <% end %>
