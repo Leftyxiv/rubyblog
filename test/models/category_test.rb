@@ -1,13 +1,15 @@
 require 'test_helper'
 
 class CategoryTest < ActiveSupport::TestCase
-  test "category name should be present" do
+
+  def setup
     @category = Category.new(name: "Veggies")
+  end
+  test "category name should be present" do
     assert @category.valid?
   end
 
   test "category name should be unique" do
-    @category = Category.new(name: "Veggies")
     @category.save
     @category2 = Category.new(name: "Veggies")
     assert_not @category2.valid?
@@ -15,13 +17,19 @@ class CategoryTest < ActiveSupport::TestCase
   end
 
   test "category name should be at least 3 characters" do
-    @category = Category.new(name: "Ve")
+    @category.name = "Ve"
     assert_not @category.valid?
     assert @category.errors[:name].any?
   end
 
   test "category name should be at most 50 characters" do
-    @category = Category.new(name: "Veggies" * 20)
+    @category.name = "Veggies" * 20
+    assert_not @category.valid?
+    assert @category.errors[:name].any?
+  end
+
+  test "catefory name should not contain special characters" do
+    @category.name = "Veggies!"
     assert_not @category.valid?
     assert @category.errors[:name].any?
   end
