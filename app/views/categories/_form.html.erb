@@ -1,0 +1,16 @@
+
+<% if @category.errors.any? %>
+
+  <h2>Errors</h2>
+  <ul>
+    <% @category.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with(model: @category, data: { turbo: false }, local:true)  do |f| %>
+    <%= f.label :name %>
+    <br>
+  <%= text_field :category, :name %>
+  <%= submit_tag "Submit" %>
+<% end %>
